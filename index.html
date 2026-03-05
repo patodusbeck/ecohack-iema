@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoHack IEMA | Monitoramento de Queimadas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="./src/styles.css?v=20260305-2" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <main class="container">
+    <header class="hero">
+      <div>
+        <p class="chip">EcoHack IEMA | Codificando um Mundo Sustent&aacute;vel</p>
+        <h1>Monitoramento de queimadas na Chapada das Mesas</h1>
+        <p>
+          Painel com foco em Carolina-MA para transformar dados de sat&eacute;lite em risco, impacto e tomada de decis&atilde;o.
+        </p>
+      </div>
+      <aside class="hero-side">
+        <h2>Fluxo em 3 etapas</h2>
+        <ol>
+          <li>Detec&ccedil;&atilde;o por sat&eacute;lite</li>
+          <li>Classifica&ccedil;&atilde;o de risco</li>
+          <li>Estimativa de CO2</li>
+        </ol>
+      </aside>
+    </header>
+
+    <section class="cards" id="summary-cards" aria-label="Resumo"></section>
+
+    <section class="panel panel-map">
+      <div class="panel-title-wrap">
+        <h2>Mapa de focos de calor</h2>
+        <p>Eventos focados na regi&atilde;o da Chapada das Mesas e Carolina-MA.</p>
+      </div>
+      <div id="map" role="img" aria-label="Mapa com focos de queimadas"></div>
+      <div class="heat-legend" aria-hidden="true">
+        <span>Intensidade t&eacute;rmica</span>
+        <div class="heat-bar"></div>
+        <div class="legend-scale">
+          <small>Baixa</small>
+          <small>Alta</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel-grid">
+      <article class="subpanel">
+        <h3>Focos por dia</h3>
+        <canvas id="dailyChart" width="560" height="280" aria-label="Gr&aacute;fico de focos por dia"></canvas>
+      </article>
+      <article class="subpanel">
+        <h3>Risco por munic&iacute;pio</h3>
+        <div id="cityRisk"></div>
+      </article>
+    </section>
+
+    <section class="panel panel-grid">
+      <article class="subpanel">
+        <h3>Distribui&ccedil;&atilde;o de risco</h3>
+        <div id="riskBreakdown"></div>
+      </article>
+      <article class="subpanel">
+        <h3>Sat&eacute;lites e sensores</h3>
+        <div id="satelliteList"></div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Eventos detectados</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Cidade</th>
+              <th>Sat&eacute;lite</th>
+              <th>Sensor</th>
+              <th>Confian&ccedil;a</th>
+              <th>FRP</th>
+              <th>Brilho</th>
+              <th>&Aacute;rea (ha)</th>
+              <th>Risco</th>
+              <th>CO2 (t)</th>
+            </tr>
+          </thead>
+          <tbody id="eventsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script type="module" src="./src/app.js?v=20260305-2"></script>
+</body>
+</html>
