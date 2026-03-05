@@ -1,0 +1,11 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="EcoHack IEMA icon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#155636"/>
+      <stop offset="100%" stop-color="#7a4c1f"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="url(#g)"/>
+  <path d="M64 28c16 12 24 24 24 36 0 17-11 30-24 30s-24-13-24-30c0-12 8-24 24-36z" fill="#d5f6e2"/>
+  <circle cx="64" cy="66" r="8" fill="#155636"/>
+</svg>
