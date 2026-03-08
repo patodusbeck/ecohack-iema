@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BCZ — Página da fazenda</title>
+    <meta name="description" content="Detalhes do projeto de bambu e tokens BCZ (protótipo educativo)." />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./assets/fazenda.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="BCZ — Bambu Carbon Zero">
+          <img class="brand-mark" src="./assets/Images/logo.png" alt="" aria-hidden="true" />
+          <span class="brand-text">
+            <span class="brand-name">BCZ</span>
+            <span class="brand-sub">Bambu Carbon Zero</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Navegação">
+          <a href="./index.html#marketplace">Marketplace</a>
+          <a class="nav-cta" href="./index.html#cadastro">Cadastrar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="farm-title">Fazenda</h2>
+          <p class="muted" id="farm-sub">Carregando…</p>
+        </div>
+
+        <div class="grid-2 farm-grid">
+          <div class="card farm-main-card">
+            <h3>Resumo</h3>
+            <div class="list" id="farm-metrics"></div>
+            <div class="farm-actions">
+              <a class="button primary" id="farm-buy" href="./index.html#marketplace">Comprar tokens</a>
+              <button class="button ghost" id="copy-link" type="button">Copiar link</button>
+            </div>
+            <p class="disclaimer farm-disclaimer">
+              Aviso: dados e cálculos são educativos e não representam créditos certificados.
+            </p>
+          </div>
+
+          <div class="card farm-qr-card">
+            <h3>QR code (link da fazenda)</h3>
+            <p class="muted small">
+              Em uma demo com internet, o QR é gerado por um serviço externo. Sem internet, use o link copiado.
+            </p>
+            <div class="qr-wrap">
+              <img id="qr" alt="QR code do link da fazenda" width="240" height="240" />
+            </div>
+            <p class="muted small" id="qr-fallback" hidden>
+              Não foi possível carregar o QR code. Copie o link e compartilhe manualmente.
+            </p>
+          </div>
+        </div>
+
+        <section class="section farm-photos-section">
+          <div class="section-head">
+            <h2>Fotos</h2>
+            <p class="muted">Imagens (se fornecidas no cadastro).</p>
+          </div>
+          <div class="grid-3" id="photos"></div>
+          <div class="empty-state card" id="no-photos" hidden>
+            <h3>Sem fotos</h3>
+            <p>Cadastre fotos na criação da fazenda para aparecerem aqui.</p>
+            <a class="button primary" href="./index.html#cadastro">Cadastrar fazenda</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

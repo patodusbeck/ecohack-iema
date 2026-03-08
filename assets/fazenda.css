@@ -1,0 +1,33 @@
+﻿.farm-grid {
+  align-items: start;
+}
+
+.farm-main-card,
+.farm-qr-card {
+  min-height: 100%;
+}
+
+.farm-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.farm-disclaimer {
+  margin-top: 12px;
+}
+
+.qr-wrap {
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+
+.qr-wrap img {
+  border-radius: 14px;
+}
+
+.farm-photos-section {
+  padding-top: 18px;
+}

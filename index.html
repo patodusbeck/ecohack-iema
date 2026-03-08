@@ -1,177 +1,362 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monitoramento de Queimadas na Chapada das Mesas | EcoHack IEMA</title>
-  <meta
-    name="description"
-    content="Painel do EcoHack IEMA para monitoramento de queimadas na Chapada das Mesas, com foco em Carolina-MA, risco por satélite e estimativa de emissão de CO2."
-  />
-  <meta
-    name="keywords"
-    content="queimadas, Chapada das Mesas, Carolina MA, satélite, monitoramento ambiental, efeito estufa, aquecimento global, EcoHack IEMA"
-  />
-  <meta name="author" content="EcoHack IEMA" />
-  <meta name="application-name" content="EcoHack IEMA" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#0c2419" />
-  <meta name="googlebot" content="index, follow" />
-  <link rel="canonical" href="https://ecohack-iema.vercel.app/" />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta http-equiv="content-language" content="pt-BR" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="EcoHack IEMA" />
-  <meta property="og:title" content="Monitoramento de Queimadas na Chapada das Mesas | EcoHack IEMA" />
-  <meta
-    property="og:description"
-    content="Dashboard educacional com foco em Carolina-MA para análise de focos de calor, risco e estimativa de CO2."
-  />
-  <meta property="og:url" content="https://ecohack-iema.vercel.app/" />
-  <meta property="og:image" content="https://ecohack-iema.vercel.app/assets/og-banner.svg" />
-  <meta property="og:image:secure_url" content="https://ecohack-iema.vercel.app/assets/og-banner.svg" />
-  <meta property="og:image:type" content="image/svg+xml" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Banner do EcoHack IEMA com monitoramento de queimadas na Chapada das Mesas" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@ecohackiema" />
-  <meta name="twitter:title" content="Monitoramento de Queimadas na Chapada das Mesas | EcoHack IEMA" />
-  <meta
-    name="twitter:description"
-    content="Sistema do EcoHack IEMA com dados de satélite, risco de queimadas e impacto estimado em CO2."
-  />
-  <meta name="twitter:image" content="https://ecohack-iema.vercel.app/assets/og-banner.svg" />
-  <meta name="twitter:image:alt" content="Banner do EcoHack IEMA sobre monitoramento de queimadas" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <link rel="stylesheet" href="./src/styles.css?v=20260305-2" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "EcoHack IEMA",
-          "url": "https://ecohack-iema.vercel.app/",
-          "logo": "https://ecohack-iema.vercel.app/assets/favicon.svg",
-          "description": "Projeto educacional de tecnologia e sustentabilidade com foco em desafios ambientais."
-        },
-        {
-          "@type": "WebSite",
-          "name": "EcoHack IEMA",
-          "url": "https://ecohack-iema.vercel.app/",
-          "inLanguage": "pt-BR"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Monitoramento de Queimadas na Chapada das Mesas",
-          "url": "https://ecohack-iema.vercel.app/",
-          "image": "https://ecohack-iema.vercel.app/assets/og-banner.svg",
-          "applicationCategory": "EducationalApplication",
-          "operatingSystem": "Web",
-          "inLanguage": "pt-BR",
-          "creator": {
-            "@type": "Organization",
-            "name": "EcoHack IEMA"
-          },
-          "description": "Painel web para acompanhar focos de calor por satélite, classificar risco e estimar emissões de CO2 em Carolina-MA e entorno."
-        }
-      ]
-    }
-  </script>
-</head>
-<body>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <main class="container">
-    <header class="hero">
-      <div>
-        <p class="chip">EcoHack IEMA | Codificando um Mundo Sustent&aacute;vel</p>
-        <h1>Monitoramento de queimadas na Chapada das Mesas</h1>
-        <p>
-          Painel com foco em Carolina-MA para transformar dados de sat&eacute;lite em risco, impacto e tomada de decis&atilde;o.
-        </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plataforma BCZ</title>
+    <meta
+      name="description"
+      content="Protótipo educativo: tokenização (simulada) de créditos de carbono via fazendas de bambu."
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para conteúdo</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="BCZ — Bambu Carbon Zero">
+          <img class="brand-mark" src="./assets/Images/logo.png" alt="" aria-hidden="true" />
+          <span class="brand-text">
+            <span class="brand-name">Bambu • Carbon • Zero</span>
+            <span class="brand-sub">BCZ - Turma 301 Redes</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#cadastro">Cadastrar fazenda</a>
+          <a href="#marketplace">Marketplace</a>
+          <a href="#transparencia">Transparência</a>
+          <a class="nav-cta" href="#simulacao">Simulação</a>
+        </nav>
       </div>
-      <aside class="hero-side">
-        <h2>Fluxo em 3 etapas</h2>
-        <ol>
-          <li>Detec&ccedil;&atilde;o por sat&eacute;lite</li>
-          <li>Classifica&ccedil;&atilde;o de risco</li>
-          <li>Estimativa de CO2</li>
-        </ol>
-      </aside>
     </header>
 
-    <section class="cards" id="summary-cards" aria-label="Resumo"></section>
+    <main id="conteudo">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="badge">Protótipo educativo (EcoHack • Nível III - T.301 Redes)</p>
+            <h1>
+              Tokenize a captura de CO₂ com <span class="accent">fazendas de bambu</span>.
+            </h1>
+            <p class="lead">
+              Empresas compram tokens para <strong>financiar</strong> fazendas de bambu e apoiar a remoção de CO₂ da
+              atmosfera. Agricultores ganham receita e o bambu vira matéria-prima sustentável.
+            </p>
 
-    <section class="panel panel-map">
-      <div class="panel-title-wrap">
-        <h2>Mapa de focos de calor</h2>
-        <p>Eventos focados na regi&atilde;o da Chapada das Mesas e Carolina-MA.</p>
-      </div>
-      <div id="map" role="img" aria-label="Mapa com focos de queimadas"></div>
-      <div class="heat-legend" aria-hidden="true">
-        <span>Intensidade t&eacute;rmica</span>
-        <div class="heat-bar"></div>
-        <div class="legend-scale">
-          <small>Baixa</small>
-          <small>Alta</small>
+            <div class="hero-actions">
+              <a class="button primary" href="#marketplace">Ver tokens disponíveis</a>
+              <a class="button ghost" href="#cadastro">Cadastrar fazenda</a>
+            </div>
+
+            <p class="disclaimer">
+              Aviso: este site é um <strong>protótipo</strong>. Os “tokens BCZ” aqui são <strong>estimativas</strong> e
+              não equivalem a créditos de carbono certificados (MRV/validação oficial).
+            </p>
+          </div>
+
+          <div class="hero-card" role="region" aria-label="Selo BCZ">
+            <div class="seal">
+              <img class="seal-image" src="./assets/Images/selo.png" alt="Selo BCZ" />
+            </div>
+            <div class="hero-card-text">
+              <h2>O que é o Selo BCZ?</h2>
+              <p>
+                Um selo de <strong>compromisso</strong> com financiamento de projetos de bambu e comunicação transparente
+                do impacto estimado.
+              </p>
+              <a class="inline-link" href="#transparencia">Ver transparência →</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel panel-grid">
-      <article class="subpanel">
-        <h3>Focos por dia</h3>
-        <canvas id="dailyChart" width="560" height="280" aria-label="Gr&aacute;fico de focos por dia"></canvas>
-      </article>
-      <article class="subpanel">
-        <h3>Risco por munic&iacute;pio</h3>
-        <div id="cityRisk"></div>
-      </article>
-    </section>
+      <section class="section" id="como-funciona">
+        <div class="container">
+          <div class="section-head">
+            <h2>Como funciona</h2>
+            <p class="muted">
+              Fluxo simples e demonstrável: empresa compra → agricultor mantém → captura estimada → transparência.
+            </p>
+          </div>
 
-    <section class="panel panel-grid">
-      <article class="subpanel">
-        <h3>Distribui&ccedil;&atilde;o de risco</h3>
-        <div id="riskBreakdown"></div>
-      </article>
-      <article class="subpanel">
-        <h3>Sat&eacute;lites e sensores</h3>
-        <div id="satelliteList"></div>
-      </article>
-    </section>
+          <div class="grid-3">
+            <article class="card">
+              <h3>1) Cadastro do projeto</h3>
+              <p>
+                Agricultores cadastram fazendas de bambu com área, idade do plantio, localização e fotos. A plataforma
+                calcula uma <strong>estimativa</strong> de tCO₂/ano.
+              </p>
+            </article>
+            <article class="card">
+              <h3>2) Compra simulada</h3>
+              <p>
+                Empresas compram tokens (1 token ≈ 1 tCO₂ estimada). O valor <strong>financia</strong> manutenção,
+                expansão e manejo sustentável.
+              </p>
+            </article>
+            <article class="card">
+              <h3>3) Transparência</h3>
+              <p>
+                A plataforma exibe projetos apoiados, tokens adquiridos e impacto estimado.
+              </p>
+            </article>
+          </div>
 
-    <section class="panel">
-      <h2>Eventos detectados</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Cidade</th>
-              <th>Sat&eacute;lite</th>
-              <th>Sensor</th>
-              <th>Confian&ccedil;a</th>
-              <th>FRP</th>
-              <th>Brilho</th>
-              <th>&Aacute;rea (ha)</th>
-              <th>Risco</th>
-              <th>CO2 (t)</th>
-            </tr>
-          </thead>
-          <tbody id="eventsBody"></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
+          <div class="note">
+            <strong>Efeito estufa vs aquecimento global:</strong> efeito estufa é o <em>mecanismo</em> de retenção de
+            calor; aquecimento global é a <em>tendência</em> de aumento da temperatura média (muitas vezes por
+            intensificação antrópica do efeito estufa).
+          </div>
+        </div>
+      </section>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
-  <script type="module" src="./src/app.js?v=20260305-2"></script>
-</body>
+      <section class="section alt" id="cadastro">
+        <div class="container">
+          <div class="section-head">
+            <h2>Cadastrar fazenda de bambu</h2>
+            <p class="muted">
+              Gere uma estimativa educativa de captura anual e tokens disponíveis para venda no marketplace.
+            </p>
+          </div>
+
+          <form class="form card" id="farm-form" novalidate>
+            <div class="form-row">
+              <label>
+                Nome da fazenda
+                <input name="farmName" type="text" placeholder="Ex.: Fazenda Verde Vale" required maxlength="60" />
+              </label>
+
+              <label>
+                Localização (cidade/UF)
+                <input name="location" type="text" placeholder="Ex.: Carolina/MA" required maxlength="60" />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Área (hectares)
+                <input name="areaHa" type="number" min="0.1" step="0.1" placeholder="Ex.: 12.5" required />
+              </label>
+
+              <label>
+                Idade do plantio (anos)
+                <input name="ageYears" type="number" min="0" step="0.5" placeholder="Ex.: 3" required />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Taxa de captura (tCO₂/ha/ano)
+                <input
+                  name="captureRate"
+                  type="number"
+                  min="1"
+                  step="0.5"
+                  value="12"
+                  required
+                  aria-describedby="capture-help"
+                />
+                <small id="capture-help" class="help">
+                  Valor padrão apenas para demonstração. Você pode ajustar para contar melhor a história do protótipo.
+                </small>
+              </label>
+
+              <label>
+                Fotos (opcional, até 2)
+                <input name="photos" type="file" accept="image/*" multiple />
+                <small class="help">Dica: fotos grandes podem deixar o site mais pesado (salvo no seu navegador).</small>
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label class="checkbox">
+                <input name="agree" type="checkbox" required />
+                <span
+                  >Confirmo que esta estimativa é educativa e não representa crédito de carbono oficialmente
+                  certificado.</span
+                >
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="button primary" type="submit">Gerar tokens e publicar</button>
+              <button class="button ghost" type="button" id="seed-demo">Adicionar exemplos</button>
+            </div>
+
+            <div class="form-result" id="farm-result" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" id="marketplace">
+        <div class="container">
+          <div class="section-head">
+            <h2>Marketplace</h2>
+            <p class="muted">Selecione uma fazenda e faça uma compra simulada para gerar certificado/recibo.</p>
+          </div>
+
+          <div class="toolbar card">
+            <div class="toolbar-item">
+              <label class="sr-only" for="search">Buscar</label>
+              <input id="search" type="search" placeholder="Buscar por nome ou cidade..." />
+            </div>
+            <div class="toolbar-item">
+              <label class="sr-only" for="sort">Ordenar</label>
+              <select id="sort">
+                <option value="new">Mais recentes</option>
+                <option value="tokens">Mais tokens</option>
+                <option value="tco2">Maior tCO₂/ano</option>
+              </select>
+            </div>
+            <div class="toolbar-item toolbar-right">
+              <button class="button ghost" id="reset-data" type="button">Limpar dados</button>
+            </div>
+          </div>
+
+          <div class="grid-3" id="market-grid" aria-live="polite"></div>
+          <div class="empty-state card" id="market-empty" hidden>
+            <h3>Nenhuma fazenda cadastrada ainda</h3>
+            <p>Cadastre a primeira fazenda na seção acima para ver tokens disponíveis.</p>
+            <a class="button primary" href="#cadastro">Cadastrar fazenda</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="transparencia">
+        <div class="container">
+          <div class="section-head">
+            <h2>Transparência</h2>
+            <p class="muted">Números do protótipo e histórico de compras simuladas (salvos no seu navegador).</p>
+          </div>
+
+          <div class="grid-3">
+            <div class="stat card">
+              <div class="stat-label">Impacto estimado financiado</div>
+              <div class="stat-value" id="stat-tco2">0</div>
+              <div class="stat-hint">tCO₂ (estimadas)</div>
+            </div>
+            <div class="stat card">
+              <div class="stat-label">Tokens comprados</div>
+              <div class="stat-value" id="stat-tokens">0</div>
+              <div class="stat-hint">1 token ≈ 1 tCO₂</div>
+            </div>
+            <div class="stat card">
+              <div class="stat-label">Projetos apoiados</div>
+              <div class="stat-value" id="stat-projects">0</div>
+              <div class="stat-hint">fazendas com compra</div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3>Compras recentes</h3>
+              <div class="list" id="orders-list"></div>
+              <p class="muted small">Clique em uma compra para abrir o certificado.</p>
+            </div>
+            <div class="card">
+              <h3>Metodologia (simplificada)</h3>
+              <p class="small">
+                Estimativa usada no protótipo: <code>tCO₂/ano = área(ha) × taxa(tCO₂/ha/ano)</code>. Os tokens são
+                arredondados: <code>tokens = ceil(tCO₂/ano)</code>.
+              </p>
+              <p class="small">
+                No mundo real, créditos de carbono exigem MRV (mensuração/relato/verificação), adicionalidade,
+                permanência e validação por padrões/registro.
+              </p>
+              <a class="inline-link" href="#simulacao">Ver simulação do efeito estufa →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="simulacao">
+        <div class="container">
+          <div class="section-head">
+            <h2>Simulação: Efeito estufa</h2>
+            <p class="muted">
+            </p>
+          </div>
+
+          <div class="sim card">
+            <div class="sim-actions">
+              <a class="button primary" href="./Simulação/greenhouse-effect_pt_BR.html" target="_blank" rel="noreferrer">
+                Abrir em nova aba
+              </a>
+              <button class="button ghost" id="toggle-iframe" type="button">Mostrar/ocultar aqui</button>
+            </div>
+
+            <div class="sim-frame" id="sim-frame" hidden>
+              <iframe
+                title="Simulação do efeito estufa"
+                src="./Simulação/greenhouse-effect_pt_BR.html"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div class="footer-left">
+            <div class="footer-brand">BCZ</div>
+            <div class="footer-text">Protótipo educativo para demonstração (EcoHack).</div>
+          </div>
+          <div class="footer-right">
+            <a class="inline-link" href="./fazenda.html" aria-label="Abrir página de fazenda (exige ID)">Página da fazenda</a>
+            <span class="sep" aria-hidden="true">•</span>
+            <a class="inline-link" href="./certificado.html" aria-label="Abrir certificado (exige ID)">Certificado</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <dialog class="dialog" id="buy-dialog" aria-label="Compra de tokens">
+      <form method="dialog" class="dialog-card" id="buy-form">
+        <div class="dialog-head">
+          <div>
+            <h2 class="dialog-title">Compra simulada</h2>
+            <p class="dialog-sub" id="buy-sub">Selecione a quantidade de tokens.</p>
+          </div>
+          <button class="icon-button" id="buy-close" type="button" aria-label="Fechar">✕</button>
+        </div>
+
+        <input type="hidden" name="farmId" />
+
+        <div class="form-row">
+          <label>
+            Fazenda
+            <select name="farmIdSelect" required></select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Empresa
+            <input name="company" type="text" required maxlength="60" placeholder="Ex.: Empresa Solar LTDA" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Tokens (≈ tCO₂)
+            <input name="tokens" type="number" min="1" step="1" required />
+            <small class="help" id="buy-help"></small>
+          </label>
+        </div>
+
+        <div class="dialog-actions">
+          <button class="button ghost" id="buy-cancel" type="button">Cancelar</button>
+          <button class="button primary" id="buy-confirm" value="default">Gerar certificado</button>
+        </div>
+
+        <div class="form-result" id="buy-result" aria-live="polite"></div>
+      </form>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
 </html>

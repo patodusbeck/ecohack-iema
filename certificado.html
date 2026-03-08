@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BCZ — Certificado</title>
+    <meta name="description" content="Certificado/recibo de compra simulada de tokens BCZ (protótipo educativo)." />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./assets/certificado.css" />
+  </head>
+  <body>
+    <header class="site-header no-print">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="BCZ — Bambu Carbon Zero">
+          <img class="brand-mark" src="./assets/Images/logo.png" alt="" aria-hidden="true" />
+          <span class="brand-text">
+            <span class="brand-name">BCZ</span>
+            <span class="brand-sub">Bambu Carbon Zero</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Navegação">
+          <a href="./index.html#marketplace">Marketplace</a>
+          <a href="./index.html#transparencia">Transparência</a>
+          <a class="nav-cta" href="./index.html#simulacao">Simulação</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container cert">
+        <div class="section-head">
+          <h2>Certificado/Recibo</h2>
+          <p class="muted">Compra simulada de tokens BCZ (uso educativo).</p>
+        </div>
+
+        <div class="cert-box" id="cert-box">
+          <div class="cert-top">
+            <div>
+              <h1 class="cert-title">Selo BCZ — Bambu Carbon Zero</h1>
+              <div class="cert-meta" id="cert-sub">Carregando…</div>
+            </div>
+            <img class="cert-seal" src="./assets/Images/selo.png" alt="Selo BCZ" />
+          </div>
+
+          <div class="cert-grid" id="cert-grid"></div>
+
+          <div class="grid-2 cert-lower-grid">
+            <div class="cert-item">
+              <div class="k">QR code (página da fazenda)</div>
+              <div class="qr-wrap">
+                <img id="qr-farm" alt="QR code da fazenda" width="240" height="240" />
+              </div>
+              <div class="cert-meta" id="qr-farm-fallback" hidden>
+                Não foi possível carregar o QR code. Use o link do projeto.
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="k">Aviso</div>
+              <div class="cert-meta cert-warning">
+                Este certificado é parte de um protótipo educativo e não comprova compensação oficial de emissões.
+              </div>
+              <div class="cert-links">
+                <a class="inline-link" id="farm-link" href="./index.html#marketplace">Abrir fazenda →</a>
+                <a class="inline-link" href="./index.html#transparencia">Ver transparência →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-actions no-print">
+          <button class="button ghost" id="copy-cert" type="button">Copiar link</button>
+          <button class="button primary" id="print" type="button">Imprimir/Salvar PDF</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
