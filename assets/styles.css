@@ -30,6 +30,7 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--text);
+  overflow-x: hidden;
   background: radial-gradient(1100px 680px at 12% 0%, rgba(73, 133, 54, 0.14), transparent 58%),
     radial-gradient(1000px 640px at 88% 12%, rgba(201, 180, 88, 0.14), transparent 62%),
     radial-gradient(900px 680px at 40% 95%, rgba(73, 133, 54, 0.12), transparent 60%),
@@ -47,8 +48,14 @@ code {
 }
 
 .container {
-  width: min(1120px, calc(100% - 40px));
+  width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
+}
+
+img,
+svg,
+iframe {
+  max-width: 100%;
 }
 
 .skip-link {
@@ -80,13 +87,15 @@ code {
   justify-content: space-between;
   padding: 14px 0;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 14px;
-  min-width: 180px;
+  min-width: 0;
+  flex: 1;
 }
 
 .brand-mark {
@@ -117,6 +126,7 @@ code {
   gap: 14px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  flex: 1;
 }
 
 .nav a {
@@ -438,7 +448,7 @@ input[type="file"] {
 
 .toolbar-item {
   flex: 1;
-  min-width: 220px;
+  min-width: 180px;
 }
 .toolbar-right {
   flex: 0;
@@ -512,7 +522,7 @@ input[type="file"] {
   background: rgba(73, 133, 54, 0.06);
   color: rgba(73, 133, 54, 0.95);
   font-size: 0.9rem;
-  white-space: nowrap;
+  white-space: normal;
 }
 .pill strong {
   color: var(--text);
@@ -542,6 +552,7 @@ input[type="file"] {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .market-card .thumb {
   width: 100%;
@@ -577,7 +588,7 @@ input[type="file"] {
   transform: translateY(8px);
   filter: drop-shadow(0 6px 12px rgba(18, 46, 20, 0.12));
 }
-.market-card .thumb img {
+.market-card .thumb > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -647,13 +658,15 @@ input[type="file"] {
   background: rgba(73, 133, 54, 0.18);
 }
 .dialog-card {
-  width: min(520px, calc(100vw - 30px));
+  width: min(520px, calc(100vw - 16px));
   border-radius: var(--radius);
   background: #fff;
   border: 1px solid rgba(73, 133, 54, 0.22);
   box-shadow: var(--shadow);
   padding: 16px;
   color: var(--text);
+  max-height: calc(100vh - 20px);
+  overflow: auto;
 }
 .dialog-head {
   display: flex;
@@ -691,12 +704,38 @@ input[type="file"] {
   .hero-inner {
     grid-template-columns: 1fr;
   }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 860px) {
+  .container {
+    width: min(1120px, calc(100% - 24px));
+  }
+  .site-header {
+    position: static;
+  }
+  .header-inner {
+    align-items: flex-start;
+    padding: 10px 0;
+  }
   .brand-mark {
-    width: 54px;
-    height: 54px;
+    width: 48px;
+    height: 48px;
+  }
+  .brand-text {
+    gap: 0;
+  }
+  .brand-name {
+    font-size: 0.92rem;
+  }
+  .brand-sub {
+    font-size: 0.74rem;
+  }
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
   }
   .grid-3 {
     grid-template-columns: 1fr;
@@ -712,5 +751,80 @@ input[type="file"] {
   }
   .nav a {
     padding: 8px 10px;
+  }
+  .toolbar {
+    padding: 10px;
+  }
+  .toolbar-item {
+    min-width: 100%;
+  }
+  .hero {
+    padding: 30px 0 10px;
+  }
+  h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+  }
+  .section {
+    padding: 24px 0;
+  }
+  .card {
+    padding: 14px;
+  }
+  .sim iframe {
+    height: min(62vh, 520px);
+  }
+  .footer-inner {
+    align-items: flex-start;
+  }
+  .footer-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .button {
+    width: 100%;
+  }
+  .hero-actions .button,
+  .form-actions .button,
+  .dialog-actions .button,
+  .sim-actions .button {
+    width: 100%;
+  }
+  .dialog-actions {
+    flex-direction: column-reverse;
+  }
+  .dialog-head {
+    align-items: center;
+  }
+  .dialog-sub {
+    font-size: 0.95rem;
+  }
+  .list-item .top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .pill {
+    font-size: 0.84rem;
+    padding: 6px 9px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    width: min(1120px, calc(100% - 18px));
+  }
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+  .nav a {
+    font-size: 0.86rem;
+    padding: 7px 9px;
+  }
+  .dialog-card {
+    border-radius: 12px;
+    padding: 12px;
   }
 }

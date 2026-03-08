@@ -26,8 +26,26 @@
 
 .qr-wrap img {
   border-radius: 14px;
+  width: min(240px, 100%);
+  height: auto;
 }
 
 .farm-photos-section {
   padding-top: 18px;
+}
+
+@media (max-width: 860px) {
+  .farm-actions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .farm-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .farm-actions .button {
+    width: 100%;
+  }
 }
