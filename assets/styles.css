@@ -612,9 +612,10 @@ input[type="file"] {
 }
 
 .site-footer {
-  padding: 24px 0 40px;
-  border-top: 1px solid rgba(73, 133, 54, 0.12);
-  background: rgba(73, 133, 54, 0.03);
+  padding: 22px 0 32px;
+  border-top: 1px solid var(--border);
+  background: rgba(243, 246, 239, 0.72);
+  backdrop-filter: blur(12px);
 }
 
 .footer-inner {
@@ -624,9 +625,22 @@ input[type="file"] {
   gap: 16px;
   flex-wrap: wrap;
 }
-.footer-brand {
-  font-weight: 860;
-  letter-spacing: -0.02em;
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-branding {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.footer-mark {
+  width: 52px;
+  height: 52px;
+  filter: drop-shadow(0 4px 10px rgba(18, 46, 20, 0.12));
 }
 .footer-text {
   color: var(--muted);
