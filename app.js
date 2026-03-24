@@ -630,8 +630,10 @@
     const metrics = qs("#farm-metrics");
     const buyLink = qs("#farm-buy");
     const copyBtn = qs("#copy-link");
+    const cadastroSection = qs("#cadastro");
 
     if (!id) {
+      if (cadastroSection) cadastroSection.hidden = false;
       if (title) title.textContent = "Nenhuma fazenda selecionada";
       if (sub) sub.textContent = "Cadastre acima ou acesse pelo marketplace para ver os detalhes.";
       return;
@@ -639,11 +641,13 @@
 
     const farm = state.farms.find((f) => f.id === id);
     if (!farm) {
+      if (cadastroSection) cadastroSection.hidden = true;
       if (title) title.textContent = "Fazenda não encontrada";
       if (sub) sub.textContent = "Esta fazenda pode ter sido removida deste navegador.";
       return;
     }
 
+    if (cadastroSection) cadastroSection.hidden = true;
     if (title) title.textContent = farm.name;
     if (sub) sub.textContent = `${farm.location} • cadastrado em ${formatDateTime(farm.createdAt)}`;
 
