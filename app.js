@@ -89,20 +89,10 @@
       img.src = farm.photos[0];
       thumb.appendChild(img);
     } else {
-      const placeholder = document.createElement("div");
-      placeholder.className = "thumb-placeholder";
-
-      const logo = document.createElement("img");
-      logo.className = "thumb-logo";
-      logo.src = "./assets/Images/moeda.png";
-      logo.alt = "";
-      logo.ariaHidden = "true";
-
-      const caption = document.createElement("span");
-      caption.textContent = "Bambu • BCZ";
-
-      placeholder.append(logo, caption);
-      thumb.appendChild(placeholder);
+      const img = document.createElement("img");
+      img.alt = "Ilustração de fazenda de bambu";
+      img.src = "./assets/Images/fazenda-placeholder.svg";
+      thumb.appendChild(img);
     }
 
     const top = document.createElement("div");

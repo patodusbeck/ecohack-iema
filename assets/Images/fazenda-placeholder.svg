@@ -1,0 +1,75 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEF3E1" />
+      <stop offset="100%" stop-color="#F6FAEA" />
+    </linearGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#CFE2B6" />
+      <stop offset="100%" stop-color="#E5F0CC" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="700" rx="36" fill="url(#bg)" />
+  <rect x="18" y="18" width="964" height="664" rx="30" stroke="#B4C3A0" stroke-width="4" />
+
+  <circle cx="150" cy="130" r="70" fill="#F8DC78" stroke="#E7C062" stroke-width="4" />
+
+  <ellipse cx="220" cy="470" rx="420" ry="220" fill="#B8D39E" />
+  <ellipse cx="680" cy="470" rx="420" ry="220" fill="#B8D39E" />
+  <ellipse cx="240" cy="525" rx="460" ry="210" fill="#9CC989" />
+  <ellipse cx="720" cy="525" rx="460" ry="210" fill="#9CC989" />
+
+  <g opacity="0.65">
+    <path d="M0 585 L1000 535" stroke="#BFD6A3" stroke-width="3" />
+    <path d="M0 615 L1000 565" stroke="#BFD6A3" stroke-width="3" />
+    <path d="M0 645 L1000 595" stroke="#BFD6A3" stroke-width="3" />
+    <path d="M0 675 L1000 625" stroke="#BFD6A3" stroke-width="3" />
+  </g>
+
+  <g>
+    <rect x="120" y="430" width="190" height="140" rx="18" fill="#E2CFA8" stroke="#BCA684" stroke-width="3" />
+    <path d="M90 440 L215 350 L340 440" fill="#B07858" stroke="#8C5C40" stroke-width="3" />
+    <rect x="200" y="490" width="42" height="80" rx="10" fill="#8C6A48" />
+    <rect x="145" y="480" width="34" height="26" fill="#B0D6EC" stroke="#78AACC" stroke-width="2" />
+  </g>
+
+  <g>
+    <rect x="520" y="210" width="34" height="410" rx="16" fill="#5E965C" />
+    <rect x="620" y="210" width="34" height="410" rx="16" fill="#5E965C" />
+    <rect x="720" y="210" width="34" height="410" rx="16" fill="#5E965C" />
+    <rect x="820" y="210" width="34" height="410" rx="16" fill="#5E965C" />
+
+    <rect x="518" y="270" width="38" height="8" fill="#4E8250" />
+    <rect x="518" y="340" width="38" height="8" fill="#4E8250" />
+    <rect x="518" y="410" width="38" height="8" fill="#4E8250" />
+    <rect x="518" y="480" width="38" height="8" fill="#4E8250" />
+    <rect x="518" y="550" width="38" height="8" fill="#4E8250" />
+
+    <rect x="618" y="270" width="38" height="8" fill="#4E8250" />
+    <rect x="618" y="340" width="38" height="8" fill="#4E8250" />
+    <rect x="618" y="410" width="38" height="8" fill="#4E8250" />
+    <rect x="618" y="480" width="38" height="8" fill="#4E8250" />
+    <rect x="618" y="550" width="38" height="8" fill="#4E8250" />
+
+    <rect x="718" y="270" width="38" height="8" fill="#4E8250" />
+    <rect x="718" y="340" width="38" height="8" fill="#4E8250" />
+    <rect x="718" y="410" width="38" height="8" fill="#4E8250" />
+    <rect x="718" y="480" width="38" height="8" fill="#4E8250" />
+    <rect x="718" y="550" width="38" height="8" fill="#4E8250" />
+
+    <rect x="818" y="270" width="38" height="8" fill="#4E8250" />
+    <rect x="818" y="340" width="38" height="8" fill="#4E8250" />
+    <rect x="818" y="410" width="38" height="8" fill="#4E8250" />
+    <rect x="818" y="480" width="38" height="8" fill="#4E8250" />
+    <rect x="818" y="550" width="38" height="8" fill="#4E8250" />
+  </g>
+
+  <g>
+    <path d="M510 220 L430 190 L500 260" fill="#64A762" stroke="#477B4D" stroke-width="2" />
+    <path d="M560 250 L500 230 L555 300" fill="#64A762" stroke="#477B4D" stroke-width="2" />
+    <path d="M640 230 L700 190 L660 270" fill="#64A762" stroke="#477B4D" stroke-width="2" />
+    <path d="M700 270 L780 240 L720 320" fill="#64A762" stroke="#477B4D" stroke-width="2" />
+    <path d="M760 240 L860 210 L800 290" fill="#64A762" stroke="#477B4D" stroke-width="2" />
+  </g>
+</svg>
