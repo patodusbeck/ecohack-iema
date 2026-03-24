@@ -25,7 +25,7 @@
 
         <nav class="nav" aria-label="Navegação principal">
           <a href="#como-funciona">Como funciona</a>
-          <a href="#cadastro">Cadastrar fazenda</a>
+          <a href="./fazenda.html#cadastro">Cadastrar fazenda</a>
           <a href="#marketplace">Marketplace</a>
           <a href="#transparencia">Transparência</a>
           <a class="nav-cta" href="#simulacao">Simulação</a>
@@ -48,7 +48,7 @@
 
             <div class="hero-actions">
               <a class="button primary" href="#marketplace">Ver tokens disponíveis</a>
-              <a class="button ghost" href="#cadastro">Cadastrar fazenda</a>
+              <a class="button ghost" href="./fazenda.html#cadastro">Cadastrar fazenda</a>
             </div>
 
             <p class="disclaimer">
@@ -113,84 +113,6 @@
         </div>
       </section>
 
-      <section class="section alt" id="cadastro">
-        <div class="container">
-          <div class="section-head">
-            <h2>Cadastrar fazenda de bambu</h2>
-            <p class="muted">
-              Gere uma estimativa educativa de captura anual e tokens disponíveis para venda no marketplace.
-            </p>
-          </div>
-
-          <form class="form card" id="farm-form" novalidate>
-            <div class="form-row">
-              <label>
-                Nome da fazenda
-                <input name="farmName" type="text" placeholder="Ex.: Fazenda Verde Vale" required maxlength="60" />
-              </label>
-
-              <label>
-                Localização (cidade/UF)
-                <input name="location" type="text" placeholder="Ex.: Carolina/MA" required maxlength="60" />
-              </label>
-            </div>
-
-            <div class="form-row">
-              <label>
-                Área (hectares)
-                <input name="areaHa" type="number" min="0.1" step="0.1" placeholder="Ex.: 12.5" required />
-              </label>
-
-              <label>
-                Idade do plantio (anos)
-                <input name="ageYears" type="number" min="0" step="0.5" placeholder="Ex.: 3" required />
-              </label>
-            </div>
-
-            <div class="form-row">
-              <label>
-                Taxa de captura (tCO₂/ha/ano)
-                <input
-                  name="captureRate"
-                  type="number"
-                  min="1"
-                  step="0.5"
-                  value="12"
-                  required
-                  aria-describedby="capture-help"
-                />
-                <small id="capture-help" class="help">
-                  Valor padrão apenas para demonstração. Você pode ajustar para contar melhor a história do protótipo.
-                </small>
-              </label>
-
-              <label>
-                Fotos (opcional, até 2)
-                <input name="photos" type="file" accept="image/*" multiple />
-                <small class="help">Dica: fotos grandes podem deixar o site mais pesado (salvo no seu navegador).</small>
-              </label>
-            </div>
-
-            <div class="form-row">
-              <label class="checkbox">
-                <input name="agree" type="checkbox" required />
-                <span
-                  >Confirmo que esta estimativa é educativa e não representa crédito de carbono oficialmente
-                  certificado.</span
-                >
-              </label>
-            </div>
-
-            <div class="form-actions">
-              <button class="button primary" type="submit">Gerar tokens e publicar</button>
-              <button class="button ghost" type="button" id="seed-demo">Adicionar exemplos</button>
-            </div>
-
-            <div class="form-result" id="farm-result" aria-live="polite"></div>
-          </form>
-        </div>
-      </section>
-
       <section class="section" id="marketplace">
         <div class="container">
           <div class="section-head">
@@ -219,8 +141,8 @@
           <div class="grid-3" id="market-grid" aria-live="polite"></div>
           <div class="empty-state card" id="market-empty" hidden>
             <h3>Nenhuma fazenda cadastrada ainda</h3>
-            <p>Cadastre a primeira fazenda na seção acima para ver tokens disponíveis.</p>
-            <a class="button primary" href="#cadastro">Cadastrar fazenda</a>
+            <p>Cadastre a primeira fazenda na página de cadastro para ver tokens disponíveis.</p>
+            <a class="button primary" href="./fazenda.html#cadastro">Cadastrar fazenda</a>
           </div>
         </div>
       </section>

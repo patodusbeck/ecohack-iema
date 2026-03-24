@@ -243,11 +243,47 @@
     renderOrders(state);
   };
 
-  const buildDemoState = () => {
+  const buildStateFromSamples = (samples) => {
+    const farms = [];
+    const orders = [];
     const now = Date.now();
     const dayMs = 24 * 60 * 60 * 1000;
 
-    const samples = [
+    for (const sample of samples) {
+      const { tco2PerYear, tokens } = estimate(sample);
+      const farmId = uid();
+      const sold = sample.purchases.reduce((acc, p) => acc + Number(p.tokens || 0), 0);
+
+      farms.push({
+        id: farmId,
+        name: sample.name,
+        location: sample.location,
+        areaHa: sample.areaHa,
+        ageYears: sample.ageYears,
+        captureRate: sample.captureRate,
+        estimatedTco2PerYear: tco2PerYear,
+        tokensAvailable: Math.max(0, tokens - sold),
+        photos: [],
+        createdAt: new Date(now - sample.createdDaysAgo * dayMs).toISOString(),
+      });
+
+      for (const purchase of sample.purchases) {
+        orders.push({
+          id: uid(),
+          farmId,
+          company: purchase.company,
+          tokens: purchase.tokens,
+          tco2: purchase.tokens,
+          createdAt: new Date(now - purchase.daysAgo * dayMs).toISOString(),
+        });
+      }
+    }
+
+    return { farms, orders };
+  };
+
+  const buildDemoState = () => {
+    return buildStateFromSamples([
       {
         name: "Fazenda Verde Vale",
         location: "Carolina/MA",
@@ -302,88 +338,49 @@
           { company: "Grupo Horizonte", tokens: 44, daysAgo: 5 },
         ],
       },
-    ];
+    ]);
+  };
 
-    const farms = [];
-    const orders = [];
-
-    for (const sample of samples) {
-      const { tco2PerYear, tokens } = estimate(sample);
-      const farmId = uid();
-      const sold = sample.purchases.reduce((acc, p) => acc + Number(p.tokens || 0), 0);
-
-      farms.push({
-        id: farmId,
-        name: sample.name,
-        location: sample.location,
-        areaHa: sample.areaHa,
-        ageYears: sample.ageYears,
-        captureRate: sample.captureRate,
-        estimatedTco2PerYear: tco2PerYear,
-        tokensAvailable: Math.max(0, tokens - sold),
-        photos: [],
-        createdAt: new Date(now - sample.createdDaysAgo * dayMs).toISOString(),
-      });
-
-      for (const purchase of sample.purchases) {
-        orders.push({
-          id: uid(),
-          farmId,
-          company: purchase.company,
-          tokens: purchase.tokens,
-          tco2: purchase.tokens,
-          createdAt: new Date(now - purchase.daysAgo * dayMs).toISOString(),
-        });
+  const loadExampleData = async ({ force = false } = {}) => {
+    const state = getState();
+    if (!force && (state.farms.length > 0 || state.orders.length > 0)) return false;
+    try {
+      const res = await fetch("./ex.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("ex.json not found");
+      const data = await res.json();
+      const samples = Array.isArray(data?.samples) ? data.samples : [];
+      if (samples.length === 0) throw new Error("ex.json empty");
+      const demo = buildStateFromSamples(samples);
+      setState({ ...state, farms: demo.farms, orders: [...demo.orders, ...state.orders] });
+      return true;
+    } catch {
+      if (force || (state.farms.length === 0 && state.orders.length === 0)) {
+        const demo = buildDemoState();
+        setState({ ...state, farms: demo.farms, orders: [...demo.orders, ...state.orders] });
+        return true;
       }
+      return false;
     }
-
-    return { farms, orders };
   };
 
   const seedDemoData = () => {
-    const state = getState();
-    if (state.farms.length > 0) return;
-    const demo = buildDemoState();
-    setState({ ...state, farms: demo.farms, orders: [...demo.orders, ...state.orders] });
+    loadExampleData({ force: true });
   };
 
-  const initIndex = () => {
-    const state = getState();
-    if (state.farms.length === 0 && state.orders.length === 0) {
-      setState(buildDemoState());
-    }
+  const initFarmForm = () => {
     const farmForm = qs("#farm-form");
+    if (!farmForm) return;
     const farmResult = qs("#farm-result");
     const seedBtn = qs("#seed-demo");
-    const toggleIframe = qs("#toggle-iframe");
-    const simFrame = qs("#sim-frame");
 
     seedBtn?.addEventListener("click", () => {
       seedDemoData();
       if (farmResult) farmResult.innerHTML = `<span class="ok">Exemplos adicionados.</span> Vá ao marketplace para comprar tokens.`;
       rerenderIndex();
-      location.hash = "#marketplace";
+      location.href = "./index.html#marketplace";
     });
 
-    toggleIframe?.addEventListener("click", () => {
-      const nextHidden = !simFrame.hidden;
-      simFrame.hidden = nextHidden;
-      toggleIframe.textContent = nextHidden ? "Mostrar aqui" : "Ocultar aqui";
-    });
-
-    qs("#search")?.addEventListener("input", rerenderIndex);
-    qs("#sort")?.addEventListener("change", rerenderIndex);
-
-    qs("#reset-data")?.addEventListener("click", () => {
-      if (!confirm("Limpar todos os dados salvos neste navegador?")) return;
-      localStorage.removeItem(STORAGE_KEY);
-      rerenderIndex();
-      const list = qs("#orders-list");
-      if (list) list.innerHTML = "";
-      if (farmResult) farmResult.innerHTML = `<span class="ok">Dados limpos.</span>`;
-    });
-
-    farmForm?.addEventListener("submit", async (ev) => {
+    farmForm.addEventListener("submit", async (ev) => {
       ev.preventDefault();
       if (farmResult) farmResult.textContent = "";
 
@@ -443,7 +440,30 @@
       const captureInput = qs('input[name="captureRate"]');
       if (captureInput) captureInput.value = "12";
       rerenderIndex();
-      location.hash = "#marketplace";
+      location.href = "./index.html#marketplace";
+    });
+  };
+
+  const initIndex = () => {
+    loadExampleData();
+    const toggleIframe = qs("#toggle-iframe");
+    const simFrame = qs("#sim-frame");
+
+    toggleIframe?.addEventListener("click", () => {
+      const nextHidden = !simFrame.hidden;
+      simFrame.hidden = nextHidden;
+      toggleIframe.textContent = nextHidden ? "Mostrar aqui" : "Ocultar aqui";
+    });
+
+    qs("#search")?.addEventListener("input", rerenderIndex);
+    qs("#sort")?.addEventListener("change", rerenderIndex);
+
+    qs("#reset-data")?.addEventListener("click", () => {
+      if (!confirm("Limpar todos os dados salvos neste navegador?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      rerenderIndex();
+      const list = qs("#orders-list");
+      if (list) list.innerHTML = "";
     });
 
     const buyDialog = qs("#buy-dialog");
@@ -612,8 +632,8 @@
     const copyBtn = qs("#copy-link");
 
     if (!id) {
-      if (title) title.textContent = "Fazenda não informada";
-      if (sub) sub.textContent = "Volte ao marketplace e selecione uma fazenda.";
+      if (title) title.textContent = "Nenhuma fazenda selecionada";
+      if (sub) sub.textContent = "Cadastre acima ou acesse pelo marketplace para ver os detalhes.";
       return;
     }
 
@@ -740,6 +760,7 @@
   };
 
   const init = () => {
+    initFarmForm();
     if (isIndex()) initIndex();
     if (isFarmPage()) initFarmPage();
     if (isCertPage()) initCertPage();

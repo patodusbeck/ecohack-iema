@@ -1,0 +1,62 @@
+{
+  "samples": [
+    {
+      "name": "Fazenda Verde Vale",
+      "location": "Carolina/MA",
+      "areaHa": 12.5,
+      "ageYears": 3,
+      "captureRate": 12,
+      "createdDaysAgo": 12,
+      "purchases": [
+        { "company": "Eco Construcoes SA", "tokens": 28, "daysAgo": 8 },
+        { "company": "BioEnergia Norte", "tokens": 12, "daysAgo": 4 }
+      ]
+    },
+    {
+      "name": "Sitio Bambuzal do Cerrado",
+      "location": "Riachao/MA",
+      "areaHa": 6.2,
+      "ageYears": 2,
+      "captureRate": 10,
+      "createdDaysAgo": 10,
+      "purchases": [
+        { "company": "SolarTech Brasil", "tokens": 14, "daysAgo": 6 }
+      ]
+    },
+    {
+      "name": "Projeto Rio Azul",
+      "location": "Estreito/MA",
+      "areaHa": 18,
+      "ageYears": 4,
+      "captureRate": 13.5,
+      "createdDaysAgo": 14,
+      "purchases": [
+        { "company": "Logistica Verde Ltda", "tokens": 35, "daysAgo": 9 },
+        { "company": "Mercado Aurora", "tokens": 22, "daysAgo": 2 }
+      ]
+    },
+    {
+      "name": "Cooperativa Serra Viva",
+      "location": "Imperatriz/MA",
+      "areaHa": 9.8,
+      "ageYears": 1.5,
+      "captureRate": 11.5,
+      "createdDaysAgo": 7,
+      "purchases": [
+        { "company": "Rede Alimentos Centro", "tokens": 18, "daysAgo": 3 }
+      ]
+    },
+    {
+      "name": "Bambu Sustentavel Tocantins",
+      "location": "Araguaina/TO",
+      "areaHa": 21.3,
+      "ageYears": 5,
+      "captureRate": 14.2,
+      "createdDaysAgo": 20,
+      "purchases": [
+        { "company": "Industria Delta", "tokens": 60, "daysAgo": 15 },
+        { "company": "Grupo Horizonte", "tokens": 44, "daysAgo": 5 }
+      ]
+    }
+  ]
+}

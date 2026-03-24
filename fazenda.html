@@ -21,17 +21,96 @@
 
         <nav class="nav" aria-label="Navegação">
           <a href="./index.html#marketplace">Marketplace</a>
-          <a class="nav-cta" href="./index.html#cadastro">Cadastrar</a>
+          <a class="nav-cta" href="#cadastro">Cadastrar</a>
         </nav>
       </div>
     </header>
 
-    <main class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="farm-title">Fazenda</h2>
-          <p class="muted" id="farm-sub">Carregando…</p>
+    <main>
+      <section class="section alt" id="cadastro">
+        <div class="container">
+          <div class="section-head">
+            <h2>Cadastrar fazenda de bambu</h2>
+            <p class="muted">
+              Gere uma estimativa educativa de captura anual e tokens disponíveis para venda no marketplace.
+            </p>
+          </div>
+
+          <form class="form card" id="farm-form" novalidate>
+            <div class="form-row">
+              <label>
+                Nome da fazenda
+                <input name="farmName" type="text" placeholder="Ex.: Fazenda Verde Vale" required maxlength="60" />
+              </label>
+
+              <label>
+                Localização (cidade/UF)
+                <input name="location" type="text" placeholder="Ex.: Carolina/MA" required maxlength="60" />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Área (hectares)
+                <input name="areaHa" type="number" min="0.1" step="0.1" placeholder="Ex.: 12.5" required />
+              </label>
+
+              <label>
+                Idade do plantio (anos)
+                <input name="ageYears" type="number" min="0" step="0.5" placeholder="Ex.: 3" required />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Taxa de captura (tCO₂/ha/ano)
+                <input
+                  name="captureRate"
+                  type="number"
+                  min="1"
+                  step="0.5"
+                  value="12"
+                  required
+                  aria-describedby="capture-help"
+                />
+                <small id="capture-help" class="help">
+                  Valor padrão apenas para demonstração. Você pode ajustar para contar melhor a história do protótipo.
+                </small>
+              </label>
+
+              <label>
+                Fotos (opcional, até 2)
+                <input name="photos" type="file" accept="image/*" multiple />
+                <small class="help">Dica: fotos grandes podem deixar o site mais pesado (salvo no seu navegador).</small>
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label class="checkbox">
+                <input name="agree" type="checkbox" required />
+                <span
+                  >Confirmo que esta estimativa é educativa e não representa crédito de carbono oficialmente
+                  certificado.</span
+                >
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="button primary" type="submit">Gerar tokens e publicar</button>
+              <button class="button ghost" type="button" id="seed-demo">Adicionar exemplos</button>
+            </div>
+
+            <div class="form-result" id="farm-result" aria-live="polite"></div>
+          </form>
         </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="farm-title">Fazenda</h2>
+            <p class="muted" id="farm-sub">Carregando…</p>
+          </div>
 
         <div class="grid-2 farm-grid">
           <div class="card farm-main-card">
@@ -69,10 +148,11 @@
           <div class="empty-state card" id="no-photos" hidden>
             <h3>Sem fotos</h3>
             <p>Cadastre fotos na criação da fazenda para aparecerem aqui.</p>
-            <a class="button primary" href="./index.html#cadastro">Cadastrar fazenda</a>
+            <a class="button primary" href="#cadastro">Cadastrar fazenda</a>
           </div>
         </section>
       </div>
+      </section>
     </main>
 
     <script src="./app.js"></script>
