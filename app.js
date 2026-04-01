@@ -282,7 +282,7 @@
         captureRate: 12,
         createdDaysAgo: 12,
         purchases: [
-          { company: "Eco Construcoes SA", tokens: 28, daysAgo: 8 },
+          { company: "Ricardo Construções SA", tokens: 28, daysAgo: 8 },
           { company: "BioEnergia Norte", tokens: 12, daysAgo: 4 },
         ],
       },
@@ -296,7 +296,7 @@
         purchases: [{ company: "SolarTech Brasil", tokens: 14, daysAgo: 6 }],
       },
       {
-        name: "Projeto Rio Azul",
+        name: "Fazenda Rio Azul",
         location: "Estreito/MA",
         areaHa: 18,
         ageYears: 4,
@@ -304,7 +304,7 @@
         createdDaysAgo: 14,
         purchases: [
           { company: "Logistica Verde Ltda", tokens: 35, daysAgo: 9 },
-          { company: "Mercado Aurora", tokens: 22, daysAgo: 2 },
+          { company: "Mineradora Grupo Verde", tokens: 22, daysAgo: 2 },
         ],
       },
       {
